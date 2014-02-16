@@ -12,3 +12,5 @@ gem 'nokogiri'
 gem 'htmlentities'
 
 gem 'jira-ruby', :require => 'jira'
+# gem 'sinatra-r18n'
+# gem 'sinatra-i18n'

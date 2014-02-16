@@ -11,42 +11,23 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
 // ----------------------------------------------------------------------------
 // Widget-list styles
 // ----------------------------------------------------------------------------
-.widget-zendesk {
+.widget-table {
 
   background-color: $background-color;
-  vertical-align: top !important;
+  vertical-align: top;
 
   .title {
     color: $title-color;
   }
 
-  ol, ul {
-    margin: 0 15px;
-    text-align: left;
-    color: $label-color;
+  table {
+      width: 100%;
+      margin: 0 20px;
   }
 
-  ol {
-    list-style-position: inside;
-  }
-
-  li {
-    margin-bottom: 5px;
-  }
-
-  .list-nostyle {
-    list-style: none;
-  }
-
-  .label {
-    color: $label-color;
-  }
-
-  .value {
-    float: right;
-    margin-left: 12px;
-    font-weight: 600;
-    color: $value-color;
+  th, td {
+      text-align: left;
+      vertical-align: top;
   }
 
   .updated-at {

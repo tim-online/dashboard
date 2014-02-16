@@ -39,8 +39,27 @@ end
 SCHEDULER.every '5m', :first_in => 0 do |job|
   tickets = client.search(:query => "status<solved type:ticket", :reload => true)
   tickets = tickets.map do |ticket|
-    { label: ticket.subject, value: nil }
+    {
+      'cols' => [
+        {
+          'value' => ticket.via.source.from.name,
+          'title' => '',
+          'class' => '',
+        },
+        {
+          'value' => ticket.subject,
+          'title' => '',
+          'class' => '',
+        },
+      ],
+    }
   end
-  send_event('unresolved_zendesk_tickets', items: tickets)
+  send_event('unresolved_zendesk_tickets', {
+    rows: tickets,
+    headers: [
+      'Van',
+      'Onderwerp'
+    ]
+  })
   send_event('count_unresolved_zendesk_tickets', current: tickets.count)
 end
