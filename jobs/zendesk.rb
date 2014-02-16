@@ -37,7 +37,11 @@ client = ZendeskAPI::Client.new do |config|
 end
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
-  tickets = client.search(:query => "status<solved type:ticket", :reload => true)
+  tickets = client.search(
+    :query => "status<solved type:ticket",
+    :sort_by => "created_at",
+    :sort_order => "desc",
+    :reload => true)
   tickets = tickets.map do |ticket|
     {
       'cols' => [
@@ -54,6 +58,7 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
       ],
     }
   end
+
   send_event('unresolved_zendesk_tickets', {
     rows: tickets,
     headers: [
