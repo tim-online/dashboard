@@ -16,7 +16,7 @@ client = JIRA::Client.new(options)
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
   issues = client.Issue.jql('duedate >= now() ORDER BY due ASC')
-  issues = issues[0..15]
+  issues = issues[0..18]
   rows = issues.map do |issue|
     {
       'cols' => [
