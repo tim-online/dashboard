@@ -2,17 +2,17 @@
 
 <table>
     <thead>
-        <tr>
-            <th data-foreach-header="headers" data-bind="header"></th>
-        </tr>
-    </thead>
-    <tbody>
-    </tbody>
-    <tr data-foreach-row="rows">
-      <td data-foreach-col="row.cols" data-bind-title="col.title" data-bind-class="col.class">
-        <span data-bind="col.value | truncate 70"></span>
-      </td>
+    <tr>
+        <th data-foreach-header="headers" data-bind="header"></th>
     </tr>
+    </thead>
+    <tbody id="movies">
+    <tr data-foreach-row="rows">
+        <td data-foreach-col="row.cols" data-bind-title="col.title" data-bind-class="col.class">
+            <span data-bind="col.value | truncate 70"></span>
+        </td>
+    </tr>
+    </tbody>
 </table>
 
 <p class="more-info" data-bind="moreinfo"></p>
