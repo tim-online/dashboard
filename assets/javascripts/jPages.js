@@ -13,7 +13,7 @@
   var name = "jPages",
       instance = null,
       defaults = {
-        containerID: "",
+        containerSelector: "",
         first: false,
         previous: "← previous",
         next: "next →",
@@ -40,7 +40,9 @@
   function Plugin(element, options) {
     this.options = $.extend({}, defaults, options);
 
-    this._container = $("#" + this.options.containerID);
+    // this._container = element.find(this.options.containerSelector);
+    // this._container = $(this.options.containerSelector);
+    this._container = this.options.container;
     if (!this._container.length) return;
 
     this.jQwindow = $(window);
@@ -340,6 +342,7 @@
       range.start = (page - 1) * this.options.perPage;
       range.end = range.start + this.options.perPage;
       if (range.end > this._items.length) range.end = this._items.length;
+      console.log(range);
       return range;
     },
 
@@ -370,6 +373,12 @@
     },
 
     jQAnimations : function(page) {
+      this._itemsHiding.addClass("jp-hidden");
+      this._itemsShowing.removeClass("jp-hidden");
+      this._itemsOriented = this.getDirectedItems(page);
+      this._itemsOriented.show();
+      return;
+
       clearInterval(this._delay);
       this._itemsHiding.addClass("jp-hidden");
       this._itemsShowing.fadeTo(0, 0).removeClass("jp-hidden");
