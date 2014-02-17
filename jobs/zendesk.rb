@@ -43,10 +43,23 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     :sort_order => "desc",
     :reload => true)
   tickets = tickets.map do |ticket|
+    if ticket.via.source.from.name
+      # Use email from header
+      submitter = ticket.via.source.from.name
+    else
+      # Use zendesk user name (requires an extra api call)
+      submitter = ticket.submitter.name
+    end
+
     {
       'cols' => [
         {
-          'value' => ticket.via.source.from.name,
+          'value' => ticket.created_at.strftime('%d-%m'),
+          'title' => '',
+          'class' => '',
+        },
+        {
+          'value' => submitter,
           'title' => '',
           'class' => '',
         },
@@ -62,6 +75,7 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
   send_event('unresolved_zendesk_tickets', {
     rows: tickets,
     headers: [
+      'Datum',
       'Van',
       'Onderwerp'
     ]
