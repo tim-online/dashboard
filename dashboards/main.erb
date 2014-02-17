@@ -12,42 +12,60 @@ $(function() {
 <div class="gridster">
   <ul>
     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-view="Image" data-image="/logo.png"></div>
+      <div class="height-wrapper">
+        <div data-view="Image" data-image="/logo.png"></div>
+      </div>
     </li>
 
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-view="Clock"></div>
-      <i class="icon-time icon-background"></i>
+      <div class="height-wrapper">
+        <div data-view="Clock"></div>
+        <i class="icon-time icon-background"></i>
+      </div>
     </li>
 
     <li data-row="1" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="count_unresolved_zendesk_tickets" data-view="Number" data-title="Aantal Zendesk tickets" style="background-color:#96bf48;"></div>
-      <i class="icon-heart icon-background"></i>
+      <div class="height-wrapper">
+        <div data-id="count_unresolved_zendesk_tickets" data-view="Number" data-title="Aantal Zendesk tickets" style="background-color:#96bf48;"></div>
+        <i class="icon-heart icon-background"></i>
+        </div>
     </li>
 
     <li data-row="2" data-col="1" data-sizex="3" data-sizey="1">
-      <div data-id="unresolved_zendesk_tickets" data-view="Table" data-limit="6" data-title="Zendesk tickets" data-moreinfo="" style="background-color: #78A300;"></div>
-      <i class="icon-comment icon-background"></i>
+      <div class="height-wrapper">
+        <div data-id="unresolved_zendesk_tickets" data-view="Table" data-limit="6" data-title="Zendesk tickets" data-moreinfo="" style="background-color: #78A300;"></div>
+        <i class="icon-comment icon-background"></i>
+      </div>
     </li>
 
     <li data-row="3" data-col="3" data-sizex="1" data-sizey="1">
-      <div data-id="klimato" data-view="Klimato"></div>
+      <div class="height-wrapper">
+        <div data-id="klimato" data-view="Klimato"></div>
+        </div>
     </li>
 
     <li data-row="3" data-col="4" data-sizex="2" data-sizey="1">
-      <div data-id="daily_dilbert" data-view="DailyDilbert"></div>
+      <div class="height-wrapper">
+        <div data-id="daily_dilbert" data-view="DailyDilbert"></div>
+        </div>
     </li>
 
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="nu.nl" data-view="News" data-title="nu.nl" data-interval="10"></div>
+      <div class="height-wrapper">
+        <div data-id="nu.nl" data-view="News" data-title="nu.nl" data-interval="10"></div>
+        </div>
     </li>
 
-      <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="tweakers.net" data-view="News" data-title="tweakers.net" data-interval="10" style="background-color: #F39800;"></div>
+    <li data-row="3" data-col="2" data-sizex="1" data-sizey="1">
+      <div class="height-wrapper">
+        <div data-id="tweakers.net" data-view="News" data-title="tweakers.net" data-interval="10" style="background-color: #F39800;"></div>
+      </div>
     </li>
 
     <li data-row="1" data-col="4" data-sizex="2" data-sizey="2">
-      <div data-id="jira_duedate_week" data-view="Table" data-unordered="true" data-title="JIRA upcoming" style="background-color: #205081;"></div>
+      <div class="height-wrapper">
+        <div data-id="jira_duedate_week" data-view="Table" data-unordered="true" data-title="JIRA upcoming" style="background-color: #205081;"></div>
+        </div>
     </li>
 
     <%# <li data-row="1" data-col="1" data-sizex="2" data-sizey="1"> %>
