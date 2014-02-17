@@ -15,7 +15,7 @@ client = JIRA::Client.new(options)
 
 
 SCHEDULER.every '5m', :first_in => 0 do |job|
-  issues = client.Issue.jql('duedate >= now() ORDER BY due ASC')
+  issues = client.Issue.jql('status not in (Resolved, Closed) AND duedate >= now() ORDER BY due ASC')
   issues = issues[0..18]
   rows = issues.map do |issue|
     {
