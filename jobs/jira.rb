@@ -33,6 +33,11 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
           'value' => issue.summary,
           'title' => '',
           'class' => '',
+        },
+        {
+          'value' => issue.assignee.displayName,
+          'title' => '',
+          'class' => '',
         }
       ]
     }
@@ -43,7 +48,8 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     headers: [
       'Datum',
       'Project',
-      'Issue'
+      'Issue',
+      'Assignee'
     ]
   })
 end

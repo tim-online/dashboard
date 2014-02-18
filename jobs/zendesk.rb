@@ -42,7 +42,40 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     :sort_by => "created_at",
     :sort_order => "desc",
     :reload => true)
-  tickets = tickets.map do |ticket|
+  rows = parse_tickets(tickets)
+
+  send_event('unresolved_zendesk_tickets', {
+    rows: rows,
+    headers: [
+      'Datum',
+      'Van',
+      'Onderwerp'
+    ]
+  })
+  send_event('count_unresolved_zendesk_tickets', current: tickets.count)
+end
+
+SCHEDULER.every '5m', :first_in => 0 do |job|
+  tickets = client.search(
+    :query => "status:solved type:ticket",
+    :sort_by => "created_at",
+    :sort_order => "desc",
+    :reload => true)
+  rows = parse_tickets(tickets)
+
+  send_event('recently_resolved_zendesk_tickets', {
+    rows: rows,
+    headers: [
+      'Datum',
+      'Van',
+      'Onderwerp'
+    ]
+  })
+  send_event('count_recently_resolved_zendesk_tickets', current: tickets.count)
+end
+
+def parse_tickets(tickets)
+  tickets.map do |ticket|
     if ticket.via.source.from.name
       # Use email from header
       submitter = ticket.via.source.from.name
@@ -71,14 +104,4 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
       ],
     }
   end
-
-  send_event('unresolved_zendesk_tickets', {
-    rows: tickets,
-    headers: [
-      'Datum',
-      'Van',
-      'Onderwerp'
-    ]
-  })
-  send_event('count_unresolved_zendesk_tickets', current: tickets.count)
 end
