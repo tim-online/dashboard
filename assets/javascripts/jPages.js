@@ -342,7 +342,6 @@
       range.start = (page - 1) * this.options.perPage;
       range.end = range.start + this.options.perPage;
       if (range.end > this._items.length) range.end = this._items.length;
-      console.log(range);
       return range;
     },
 
