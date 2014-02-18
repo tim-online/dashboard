@@ -3,7 +3,11 @@ $(function() {
   // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
   Dashing.widget_base_dimensions = [332, 370]
   Dashing.numColumns = 4
-  Dashing.cycleDashboards({timeInSeconds: 5});
+
+  // Cycledashboards after jPages
+  Dashing.on('ready', function() {
+    Dashing.cycleDashboards({timeInSeconds: 60});
+  });
 });
 </script>
 
