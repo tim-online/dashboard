@@ -5,9 +5,9 @@ $(function() {
   Dashing.numColumns = 4
 
   // Cycledashboards after jPages
-  Dashing.on('ready', function() {
+  setTimeout(function(){
     Dashing.cycleDashboards({timeInSeconds: 60});
-  });
+  }, 3000);
 });
 </script>
 
