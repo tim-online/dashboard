@@ -7,11 +7,14 @@ class Dashing.Table extends Dashing.Widget
     @initPagination()
 
   onData: (data) ->
-    @initPagination()
+    # @initPagination()
 
   initPagination: ->
     el = $(@node)
-    $(el.find('.holder')).jPages({
+    rows = @get('rows')
+
+    if rows.length > @limit
+      $(el.find('.holder')).jPages({
         container: $(el.find('tbody')),
         perPage: @limit,
         pause: 10000,
@@ -19,4 +22,4 @@ class Dashing.Table extends Dashing.Widget
         previous: false,
         next: false,
         animation: false
-    })
+      })

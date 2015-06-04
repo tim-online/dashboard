@@ -1,4 +1,4 @@
-ruby '2.1.1'
+ruby '2.2.2'
 source 'https://rubygems.org'
 
 gem 'dashing'
@@ -13,5 +13,6 @@ gem 'nokogiri'
 gem 'htmlentities'
 
 gem 'jira-ruby', :require => 'jira'
+gem 'savon', '~> 2.11.0'
 # gem 'sinatra-r18n'
 # gem 'sinatra-i18n'

@@ -17,9 +17,13 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     addressable (2.3.5)
+    akami (1.3.1)
+      gyoku (>= 0.4.0)
+      nokogiri
     atomic (1.1.14)
-    backports (3.6.0)
+    backports (3.6.4)
     buftok (0.2.0)
+    builder (3.2.2)
     coffee-script (2.2.0)
       coffee-script-source
       execjs
@@ -38,22 +42,28 @@ GEM
       thor
     dotenv (0.9.0)
     equalizer (0.0.9)
-    eventmachine (1.0.3)
+    eventmachine (1.0.4)
     execjs (2.0.2)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    gyoku (1.3.1)
+      builder (>= 2.1.2)
     hashie (2.0.5)
     hike (1.2.3)
     htmlentities (4.3.1)
     http (0.5.0)
       http_parser.rb
     http_parser.rb (0.6.0)
+    httpi (2.4.0)
+      rack
     i18n (0.6.9)
     inflection (1.0.0)
     jira-ruby (0.1.8)
       activesupport
       oauth
     json (1.8.1)
+    macaddr (1.7.1)
+      systemu (~> 2.6.2)
     memoizable (0.4.0)
       thread_safe (~> 0.1.3)
     mime-types (1.25.1)
@@ -63,6 +73,7 @@ GEM
     naught (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    nori (2.6.0)
     oauth (0.4.7)
     rack (1.5.2)
     rack-protection (1.5.2)
@@ -72,6 +83,15 @@ GEM
     rufus-scheduler (2.0.24)
       tzinfo (>= 0.3.22)
     sass (3.2.14)
+    savon (2.11.0)
+      akami (~> 1.2)
+      builder (>= 2.1.2)
+      gyoku (~> 1.2)
+      httpi (~> 2.3)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.4)
+      uuid (~> 2.3.7)
+      wasabi (~> 3.4)
     simple_oauth (0.2.0)
     sinatra (1.4.4)
       rack (~> 1.4)
@@ -89,6 +109,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
+    systemu (2.6.5)
     thin (1.6.1)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -110,6 +131,11 @@ GEM
       simple_oauth (~> 0.2.0)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
+    uuid (2.3.8)
+      macaddr (~> 1.0)
+    wasabi (3.5.0)
+      httpi (~> 2.0)
+      nokogiri (>= 1.4.2)
 
 PLATFORMS
   ruby
@@ -120,5 +146,9 @@ DEPENDENCIES
   htmlentities
   jira-ruby
   nokogiri
+  savon (~> 2.11.0)
   twitter (>= 5.0.0)
   zendesk_api!
+
+BUNDLED WITH
+   1.10.3

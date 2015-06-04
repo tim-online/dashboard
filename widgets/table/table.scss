@@ -38,4 +38,13 @@ $moreinfo-color:    rgba(255, 255, 255, 0.7);
     color: $moreinfo-color;
   }
 
+  [class^="icon-"],
+  [class*=" icon-"] {
+    display: table-cell;
+
+    &:before {
+      margin-right: 5px;
+    }
+  }
+
 }
