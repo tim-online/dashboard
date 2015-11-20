@@ -48,7 +48,6 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     rows: rows,
     headers: [
       'Datum',
-      'Van',
       'Onderwerp'
     ]
   })
@@ -67,7 +66,6 @@ SCHEDULER.every '5m', :first_in => 0 do |job|
     rows: rows,
     headers: [
       'Datum',
-      'Van',
       'Onderwerp'
     ]
   })
@@ -92,12 +90,7 @@ def parse_tickets(tickets)
           'class' => '',
         },
         {
-          'value' => submitter,
-          'title' => '',
-          'class' => '',
-        },
-        {
-          'value' => ticket.subject,
+          'value' => ticket.subject[0..50].gsub(/\s\w+$/,'...'),
           'title' => '',
           'class' => '',
         },
