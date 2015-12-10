@@ -1,4 +1,5 @@
 require 'time'
+require 'open-uri'
 
 # SCHEDULER.every '1d', :first_in => 0 do |job|
 SCHEDULER.every '1m', :first_in => 0 do |job|
@@ -17,7 +18,9 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
     }
   ]'
 
-  items = JSON.parse(json)
+  url = 'http://backups.tim-online.nl:2674/recent'
+  buffer = open(url).read
+  items = JSON.parse(buffer)
 
   # rows = items.take(6).map do |item|
   rows = items.map do |item|
