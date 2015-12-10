@@ -25,7 +25,7 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
   # rows = items.take(6).map do |item|
   rows = items.map do |item|
     item['date'] = Time.parse(item['date'])
-    diff_days = (item['date'].to_datetime - Date.today).to_i
+    diff_days = (Date.today - item['date'].to_datetime).to_i
     {
       'cols' => [
         {
@@ -36,7 +36,7 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
         {
           'value' => item['date'].strftime('%d-%m-%Y'),
           'title' => '',
-          'class' => diff_days < 14 ? 'icon-warning-sign' : '',
+          'class' => diff_days > 2 ? 'icon-warning-sign' : '',
         },
       ]
     }
