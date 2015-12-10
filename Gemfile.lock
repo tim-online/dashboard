@@ -16,13 +16,11 @@ GEM
     activesupport (3.2.16)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
-    addressable (2.3.5)
     akami (1.3.1)
       gyoku (>= 0.4.0)
       nokogiri
     atomic (1.1.14)
     backports (3.6.4)
-    buftok (0.2.0)
     builder (3.2.2)
     coffee-script (2.2.0)
       coffee-script-source
@@ -41,7 +39,6 @@ GEM
       thin
       thor
     dotenv (0.9.0)
-    equalizer (0.0.9)
     eventmachine (1.0.4)
     execjs (2.0.2)
     faraday (0.9.0)
@@ -51,9 +48,6 @@ GEM
     hashie (2.0.5)
     hike (1.2.3)
     htmlentities (4.3.1)
-    http (0.5.0)
-      http_parser.rb
-    http_parser.rb (0.6.0)
     httpi (2.4.0)
       rack
     i18n (0.6.9)
@@ -61,16 +55,12 @@ GEM
     jira-ruby (0.1.8)
       activesupport
       oauth
-    json (1.8.1)
     macaddr (1.7.1)
       systemu (~> 2.6.2)
-    memoizable (0.4.0)
-      thread_safe (~> 0.1.3)
     mime-types (1.25.1)
     mini_portile (0.5.2)
     multi_json (1.8.4)
     multipart-post (2.0.0)
-    naught (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nori (2.6.0)
@@ -92,7 +82,6 @@ GEM
       nori (~> 2.4)
       uuid (~> 2.3.7)
       wasabi (~> 3.4)
-    simple_oauth (0.2.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -118,17 +107,6 @@ GEM
     thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
-    twitter (5.7.1)
-      addressable (~> 2.3)
-      buftok (~> 0.2.0)
-      equalizer (~> 0.0.9)
-      faraday (~> 0.9.0)
-      http (~> 0.5.0)
-      http_parser.rb (~> 0.6.0)
-      json (~> 1.8)
-      memoizable (~> 0.4.0)
-      naught (~> 1.0)
-      simple_oauth (~> 0.2.0)
     tzinfo (1.1.0)
       thread_safe (~> 0.1)
     uuid (2.3.8)
@@ -147,8 +125,7 @@ DEPENDENCIES
   jira-ruby
   nokogiri
   savon (~> 2.11.0)
-  twitter (>= 5.0.0)
   zendesk_api!
 
 BUNDLED WITH
-   1.10.3
+   1.10.6
