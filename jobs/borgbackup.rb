@@ -1,22 +1,21 @@
 require 'time'
 require 'open-uri'
 
-# SCHEDULER.every '1d', :first_in => 0 do |job|
-SCHEDULER.every '1m', :first_in => 0 do |job|
-  json = '[
-    {
-      "repo": "ironhide.tim-online.nl",
-      "date": "2012-04-23T18:25:43.511Z"
-    },
-    {
-      "repo": "starscream.tim-online.nl",
-      "date": "2013-04-23T18:25:43.511Z"
-    },
-    {
-      "repo": "mirage.tim-online.nl",
-      "date": "2013-04-23T18:25:43.511Z"
-    }
-  ]'
+SCHEDULER.every '12h', :first_in => 0 do |job|
+  # buffer = '[
+  #   {
+  #     "repo": "ironhide.tim-online.nl",
+  #     "date": "2012-04-23T18:25:43.511Z"
+  #   },
+  #   {
+  #     "repo": "starscream.tim-online.nl",
+  #     "date": "2013-04-23T18:25:43.511Z"
+  #   },
+  #   {
+  #     "repo": "mirage.tim-online.nl",
+  #     "date": "2013-04-23T18:25:43.511Z"
+  #   }
+  # ]'
 
   url = 'http://backups.tim-online.nl:2674/recent'
   buffer = open(url).read
